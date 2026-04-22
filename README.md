@@ -36,18 +36,6 @@ Each service is independently deployable and communicates over HTTP.
 * API Gateway routing using Ocelot
 * Containerized deployment using Docker
 
-## Project Structure
-
-```
-src/
-  ApiGateway/
-  Services/
-    UserService.API/
-    NotesService.API/
-    LabelsService.API/
-    CollaboratorService.API/
-  SharedLibrary/
-```
 
 ## Getting Started
 
