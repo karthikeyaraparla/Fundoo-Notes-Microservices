@@ -1,0 +1,11 @@
+/Users/karthikeyaraparla/FundooNotes/src/Services/LabelsService.Domain/bin/Debug/net8.0/LabelsService.Domain.deps.json
+/Users/karthikeyaraparla/FundooNotes/src/Services/LabelsService.Domain/bin/Debug/net8.0/LabelsService.Domain.dll
+/Users/karthikeyaraparla/FundooNotes/src/Services/LabelsService.Domain/bin/Debug/net8.0/LabelsService.Domain.pdb
+/Users/karthikeyaraparla/FundooNotes/src/Services/LabelsService.Domain/obj/Debug/net8.0/LabelsService.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/karthikeyaraparla/FundooNotes/src/Services/LabelsService.Domain/obj/Debug/net8.0/LabelsService.Domain.AssemblyInfoInputs.cache
+/Users/karthikeyaraparla/FundooNotes/src/Services/LabelsService.Domain/obj/Debug/net8.0/LabelsService.Domain.AssemblyInfo.cs
+/Users/karthikeyaraparla/FundooNotes/src/Services/LabelsService.Domain/obj/Debug/net8.0/LabelsService.Domain.csproj.CoreCompileInputs.cache
+/Users/karthikeyaraparla/FundooNotes/src/Services/LabelsService.Domain/obj/Debug/net8.0/LabelsService.Domain.dll
+/Users/karthikeyaraparla/FundooNotes/src/Services/LabelsService.Domain/obj/Debug/net8.0/refint/LabelsService.Domain.dll
+/Users/karthikeyaraparla/FundooNotes/src/Services/LabelsService.Domain/obj/Debug/net8.0/LabelsService.Domain.pdb
+/Users/karthikeyaraparla/FundooNotes/src/Services/LabelsService.Domain/obj/Debug/net8.0/ref/LabelsService.Domain.dll

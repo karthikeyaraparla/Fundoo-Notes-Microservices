@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\CollaboratorService.Application\CollaboratorService.Application.csproj" />
+      <ProjectReference Include="..\CollaboratorService.Domain\CollaboratorService.Domain.csproj" />
+      <ProjectReference Include="..\LabelsService.Application\LabelsService.Application.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Dapper" Version="2.1.72" />
+      <PackageReference Include="Microsoft.Data.SqlClient" Version="7.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="8.0.0" />
+      <PackageReference Include="System.Configuration.ConfigurationManager" Version="11.0.0-preview.3.26207.106" />
+    </ItemGroup>
+
+</Project>

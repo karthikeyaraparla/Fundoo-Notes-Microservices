@@ -1,0 +1,35 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="docker-compose.yml" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/Services/SharedLibrary/SharedLibrary.csproj" />
+    <Project Path="src/Testing/Testing.csproj" />
+    <Project Path="src\ApiGateway\ApiGateway.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/" />
+  <Folder Name="/src/Services/CollaboratorService/">
+    <Project Path="src/Services/CollaboratorService.Application/CollaboratorService.Application.csproj" />
+    <Project Path="src/Services/CollaboratorService.Domain/CollaboratorService.Domain.csproj" />
+    <Project Path="src/Services/CollaboratorService.Infrastructure/CollaboratorService.Infrastructure.csproj" />
+    <Project Path="src\Services\CollaboratorService.API\CollaboratorService.API.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/LabelsService/">
+    <Project Path="src/Services/LabelsService.Application/LabelsService.Application.csproj" />
+    <Project Path="src/Services/LabelsService.Domain/LabelsService.Domain.csproj" />
+    <Project Path="src/Services/LabelsService.Infrastructure/LabelsService.Infrastructure.csproj" />
+    <Project Path="src\Services\LabelsService.API\LabelsService.API.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/NotesService/">
+    <Project Path="src/Services/NotesService/NotesService.Application/NotesService.Application.csproj" />
+    <Project Path="src/Services/NotesService/NotesService.Domain/NotesService.Domain.csproj" />
+    <Project Path="src/Services/NotesService/NotesService.Infrastructure/NotesService.Infrastructure.csproj" />
+    <Project Path="src\Services\NotesService\NotesService.API\NotesService.API.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/UserService/">
+    <Project Path="src/Services/UserService.Application/UserService.Application.csproj" />
+    <Project Path="src/Services/UserService.Domain/UserService.Domain.csproj" />
+    <Project Path="src/Services/UserService.Infrastructure/UserService.Infrastructure.csproj" />
+    <Project Path="src\Services\UserService.API\UserService.API.csproj" />
+  </Folder>
+</Solution>

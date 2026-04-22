@@ -1,0 +1,17 @@
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Infrastructure/bin/Debug/net10.0/NotesService.Infrastructure.deps.json
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Infrastructure/bin/Debug/net10.0/NotesService.Infrastructure.dll
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Infrastructure/bin/Debug/net10.0/NotesService.Infrastructure.pdb
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Infrastructure/bin/Debug/net10.0/NotesService.Application.dll
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Infrastructure/bin/Debug/net10.0/NotesService.Domain.dll
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Infrastructure/bin/Debug/net10.0/NotesService.Application.pdb
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Infrastructure/bin/Debug/net10.0/NotesService.Domain.pdb
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Infrastructure/obj/Debug/net10.0/NotesService.Infrastructure.csproj.AssemblyReference.cache
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Infrastructure/obj/Debug/net10.0/NotesService.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Infrastructure/obj/Debug/net10.0/NotesService.Infrastructure.AssemblyInfoInputs.cache
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Infrastructure/obj/Debug/net10.0/NotesService.Infrastructure.AssemblyInfo.cs
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Infrastructure/obj/Debug/net10.0/NotesService.Infrastructure.csproj.CoreCompileInputs.cache
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Infrastructure/obj/Debug/net10.0/NotesSer.E02FD9D9.Up2Date
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Infrastructure/obj/Debug/net10.0/NotesService.Infrastructure.dll
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Infrastructure/obj/Debug/net10.0/refint/NotesService.Infrastructure.dll
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Infrastructure/obj/Debug/net10.0/NotesService.Infrastructure.pdb
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Infrastructure/obj/Debug/net10.0/ref/NotesService.Infrastructure.dll

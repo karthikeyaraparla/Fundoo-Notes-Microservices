@@ -1,0 +1,15 @@
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Application/bin/Debug/net10.0/NotesService.Application.deps.json
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Application/bin/Debug/net10.0/NotesService.Application.dll
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Application/bin/Debug/net10.0/NotesService.Application.pdb
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Application/bin/Debug/net10.0/NotesService.Domain.dll
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Application/bin/Debug/net10.0/NotesService.Domain.pdb
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Application/obj/Debug/net10.0/NotesService.Application.csproj.AssemblyReference.cache
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Application/obj/Debug/net10.0/NotesService.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Application/obj/Debug/net10.0/NotesService.Application.AssemblyInfoInputs.cache
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Application/obj/Debug/net10.0/NotesService.Application.AssemblyInfo.cs
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Application/obj/Debug/net10.0/NotesService.Application.csproj.CoreCompileInputs.cache
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Application/obj/Debug/net10.0/NotesSer.CD68D1F9.Up2Date
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Application/obj/Debug/net10.0/NotesService.Application.dll
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Application/obj/Debug/net10.0/refint/NotesService.Application.dll
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Application/obj/Debug/net10.0/NotesService.Application.pdb
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Application/obj/Debug/net10.0/ref/NotesService.Application.dll

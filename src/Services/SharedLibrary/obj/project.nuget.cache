@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "q31g1UFQnnk=",
+  "success": true,
+  "projectFilePath": "/Users/karthikeyaraparla/FundooNotes/src/Services/SharedLibrary/SharedLibrary.csproj",
+  "expectedPackageFiles": [
+    "/Users/karthikeyaraparla/.nuget/packages/microsoft.aspnetcore.http.abstractions/2.3.9/microsoft.aspnetcore.http.abstractions.2.3.9.nupkg.sha512",
+    "/Users/karthikeyaraparla/.nuget/packages/microsoft.aspnetcore.http.features/2.3.0/microsoft.aspnetcore.http.features.2.3.0.nupkg.sha512",
+    "/Users/karthikeyaraparla/.nuget/packages/microsoft.extensions.primitives/8.0.0/microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "/Users/karthikeyaraparla/.nuget/packages/system.text.encodings.web/8.0.0/system.text.encodings.web.8.0.0.nupkg.sha512",
+    "/Users/karthikeyaraparla/.nuget/packages/microsoft.netcore.app.ref/8.0.23/microsoft.netcore.app.ref.8.0.23.nupkg.sha512",
+    "/Users/karthikeyaraparla/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.23/microsoft.aspnetcore.app.ref.8.0.23.nupkg.sha512"
+  ],
+  "logs": []
+}

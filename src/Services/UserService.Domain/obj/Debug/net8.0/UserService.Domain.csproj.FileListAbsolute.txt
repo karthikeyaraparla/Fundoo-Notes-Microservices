@@ -1,0 +1,12 @@
+/Users/karthikeyaraparla/FundooNotes/src/Services/UserService.Domain/bin/Debug/net8.0/UserService.Domain.deps.json
+/Users/karthikeyaraparla/FundooNotes/src/Services/UserService.Domain/bin/Debug/net8.0/UserService.Domain.dll
+/Users/karthikeyaraparla/FundooNotes/src/Services/UserService.Domain/bin/Debug/net8.0/UserService.Domain.pdb
+/Users/karthikeyaraparla/FundooNotes/src/Services/UserService.Domain/obj/Debug/net8.0/UserService.Domain.csproj.AssemblyReference.cache
+/Users/karthikeyaraparla/FundooNotes/src/Services/UserService.Domain/obj/Debug/net8.0/UserService.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/karthikeyaraparla/FundooNotes/src/Services/UserService.Domain/obj/Debug/net8.0/UserService.Domain.AssemblyInfoInputs.cache
+/Users/karthikeyaraparla/FundooNotes/src/Services/UserService.Domain/obj/Debug/net8.0/UserService.Domain.AssemblyInfo.cs
+/Users/karthikeyaraparla/FundooNotes/src/Services/UserService.Domain/obj/Debug/net8.0/UserService.Domain.csproj.CoreCompileInputs.cache
+/Users/karthikeyaraparla/FundooNotes/src/Services/UserService.Domain/obj/Debug/net8.0/UserService.Domain.dll
+/Users/karthikeyaraparla/FundooNotes/src/Services/UserService.Domain/obj/Debug/net8.0/refint/UserService.Domain.dll
+/Users/karthikeyaraparla/FundooNotes/src/Services/UserService.Domain/obj/Debug/net8.0/UserService.Domain.pdb
+/Users/karthikeyaraparla/FundooNotes/src/Services/UserService.Domain/obj/Debug/net8.0/ref/UserService.Domain.dll

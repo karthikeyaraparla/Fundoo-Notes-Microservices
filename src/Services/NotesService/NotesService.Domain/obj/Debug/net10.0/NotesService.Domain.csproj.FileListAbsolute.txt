@@ -1,0 +1,12 @@
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Domain/bin/Debug/net10.0/NotesService.Domain.deps.json
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Domain/bin/Debug/net10.0/NotesService.Domain.dll
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Domain/bin/Debug/net10.0/NotesService.Domain.pdb
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Domain/obj/Debug/net10.0/NotesService.Domain.csproj.AssemblyReference.cache
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Domain/obj/Debug/net10.0/NotesService.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Domain/obj/Debug/net10.0/NotesService.Domain.AssemblyInfoInputs.cache
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Domain/obj/Debug/net10.0/NotesService.Domain.AssemblyInfo.cs
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Domain/obj/Debug/net10.0/NotesService.Domain.csproj.CoreCompileInputs.cache
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Domain/obj/Debug/net10.0/NotesService.Domain.dll
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Domain/obj/Debug/net10.0/refint/NotesService.Domain.dll
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Domain/obj/Debug/net10.0/NotesService.Domain.pdb
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Domain/obj/Debug/net10.0/ref/NotesService.Domain.dll

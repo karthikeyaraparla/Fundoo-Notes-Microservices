@@ -1,0 +1,320 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/karthikeyaraparla/FundooNotes/src/Services/CollaboratorService.Infrastructure/CollaboratorService.Infrastructure.csproj": {}
+  },
+  "projects": {
+    "/Users/karthikeyaraparla/FundooNotes/src/Services/CollaboratorService.Application/CollaboratorService.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/karthikeyaraparla/FundooNotes/src/Services/CollaboratorService.Application/CollaboratorService.Application.csproj",
+        "projectName": "CollaboratorService.Application",
+        "projectPath": "/Users/karthikeyaraparla/FundooNotes/src/Services/CollaboratorService.Application/CollaboratorService.Application.csproj",
+        "packagesPath": "/Users/karthikeyaraparla/.nuget/packages/",
+        "outputPath": "/Users/karthikeyaraparla/FundooNotes/src/Services/CollaboratorService.Application/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/karthikeyaraparla/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/karthikeyaraparla/FundooNotes/src/Services/CollaboratorService.Domain/CollaboratorService.Domain.csproj": {
+                "projectPath": "/Users/karthikeyaraparla/FundooNotes/src/Services/CollaboratorService.Domain/CollaboratorService.Domain.csproj"
+              },
+              "/Users/karthikeyaraparla/FundooNotes/src/Services/SharedLibrary/SharedLibrary.csproj": {
+                "projectPath": "/Users/karthikeyaraparla/FundooNotes/src/Services/SharedLibrary/SharedLibrary.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[14.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.23, 8.0.23]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.23, 8.0.23]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.102/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/karthikeyaraparla/FundooNotes/src/Services/CollaboratorService.Domain/CollaboratorService.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/karthikeyaraparla/FundooNotes/src/Services/CollaboratorService.Domain/CollaboratorService.Domain.csproj",
+        "projectName": "CollaboratorService.Domain",
+        "projectPath": "/Users/karthikeyaraparla/FundooNotes/src/Services/CollaboratorService.Domain/CollaboratorService.Domain.csproj",
+        "packagesPath": "/Users/karthikeyaraparla/.nuget/packages/",
+        "outputPath": "/Users/karthikeyaraparla/FundooNotes/src/Services/CollaboratorService.Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/karthikeyaraparla/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.23, 8.0.23]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.23, 8.0.23]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.102/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/karthikeyaraparla/FundooNotes/src/Services/CollaboratorService.Infrastructure/CollaboratorService.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/karthikeyaraparla/FundooNotes/src/Services/CollaboratorService.Infrastructure/CollaboratorService.Infrastructure.csproj",
+        "projectName": "CollaboratorService.Infrastructure",
+        "projectPath": "/Users/karthikeyaraparla/FundooNotes/src/Services/CollaboratorService.Infrastructure/CollaboratorService.Infrastructure.csproj",
+        "packagesPath": "/Users/karthikeyaraparla/.nuget/packages/",
+        "outputPath": "/Users/karthikeyaraparla/FundooNotes/src/Services/CollaboratorService.Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/karthikeyaraparla/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/karthikeyaraparla/FundooNotes/src/Services/CollaboratorService.Application/CollaboratorService.Application.csproj": {
+                "projectPath": "/Users/karthikeyaraparla/FundooNotes/src/Services/CollaboratorService.Application/CollaboratorService.Application.csproj"
+              },
+              "/Users/karthikeyaraparla/FundooNotes/src/Services/CollaboratorService.Domain/CollaboratorService.Domain.csproj": {
+                "projectPath": "/Users/karthikeyaraparla/FundooNotes/src/Services/CollaboratorService.Domain/CollaboratorService.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.1.72, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.23, 8.0.23]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.23, 8.0.23]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.102/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/karthikeyaraparla/FundooNotes/src/Services/SharedLibrary/SharedLibrary.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/karthikeyaraparla/FundooNotes/src/Services/SharedLibrary/SharedLibrary.csproj",
+        "projectName": "SharedLibrary",
+        "projectPath": "/Users/karthikeyaraparla/FundooNotes/src/Services/SharedLibrary/SharedLibrary.csproj",
+        "packagesPath": "/Users/karthikeyaraparla/.nuget/packages/",
+        "outputPath": "/Users/karthikeyaraparla/FundooNotes/src/Services/SharedLibrary/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/karthikeyaraparla/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.3.9, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.23, 8.0.23]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.23, 8.0.23]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.102/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
