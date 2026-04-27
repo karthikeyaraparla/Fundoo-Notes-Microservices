@@ -1,3 +1,3 @@
 namespace CollaboratorService.Application.DTOs;
 
-public record AddCollaboratorDto(string NoteId, int CollaboratorUserId);
+public record AddCollaboratorDto(int NoteId, int CollaboratorUserId, string CollaboratorEmail);

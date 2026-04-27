@@ -1,6 +1,7 @@
 using System.Text;
 using CollaboratorService.Application.Features.Collaborators.Commands.AddCollaborator;
 using CollaboratorService.Application.Interfaces;
+using CollaboratorService.Infrastructure.Email;
 using CollaboratorService.Infrastructure.Persistence;
 using CollaboratorService.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -67,7 +68,6 @@ builder.Services.AddSwaggerGen(options =>
 builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssembly(typeof(AddCollaboratorHandler).Assembly));
 
-// JWT Authentication
 builder.Services
     .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -86,6 +86,7 @@ builder.Services
 
 builder.Services.AddAuthorization();
 
+
 // DATABASE
 
 builder.Services.AddSingleton<DbConnectionFactory>(sp =>
@@ -94,21 +95,41 @@ builder.Services.AddSingleton<DbConnectionFactory>(sp =>
     return new DbConnectionFactory(config.GetConnectionString("DefaultConnection")!);
 });
 
+builder.Services.AddSingleton(sp =>
+{
+    var config = sp.GetRequiredService<IConfiguration>();
+    var smtpUsername = config["SmtpSettings:Username"]
+        ?? config["SmtpSettings:UserName"]
+        ?? string.Empty;
+
+    return new SmtpSettings
+    {
+        Host = config["SmtpSettings:Host"] ?? string.Empty,
+        Port = int.TryParse(config["SmtpSettings:Port"], out var port) ? port : 0,
+        Username = smtpUsername,
+        Password = config["SmtpSettings:Password"] ?? string.Empty,
+        FromEmail = config["SmtpSettings:FromEmail"] ?? smtpUsername,
+        FromName = config["SmtpSettings:FromName"] ?? "Fundoo Notes",
+        EnableSsl = bool.TryParse(config["SmtpSettings:EnableSsl"], out var enableSsl) && enableSsl
+    };
+});
+
 builder.Services.AddScoped<ICollaboratorRepository, CollaboratorRepository>();
+builder.Services.AddScoped<ICollaboratorInvitationEmailService, SmtpCollaboratorInvitationEmailService>();
 
 // APP
 
 var app = builder.Build();
 
 
-// 🔥 FIXED RETRY LOGIC (IMPORTANT)
+//  FIXED RETRY LOGIC (IMPORTANT)
 
 using (var scope = app.Services.CreateScope())
 {
     var dbFactory = scope.ServiceProvider.GetRequiredService<DbConnectionFactory>();
     var logger = scope.ServiceProvider.GetRequiredService<ILoggerFactory>().CreateLogger("Startup");
 
-    int maxRetries = 20; // 🔥 increased retries
+    int maxRetries = 20; // increased retries
     int delay = 5000;    // 5 seconds
 
     for (int i = 1; i <= maxRetries; i++)
@@ -116,17 +137,17 @@ using (var scope = app.Services.CreateScope())
         try
         {
             await dbFactory.EnsureDatabaseObjectsAsync();
-            logger.LogInformation("✅ Database initialized successfully");
+            logger.LogInformation(" Database initialized successfully");
             break;
         }
         catch (SqlException ex)
         {
-            logger.LogWarning($"⚠️ Attempt {i}/{maxRetries} - SQL not ready... retrying in 5 seconds");
+            logger.LogWarning($" Attempt {i}/{maxRetries} - SQL not ready... retrying in 5 seconds");
 
             if (i == maxRetries)
             {
-                logger.LogError(ex, "❌ Database failed after retries — continuing app startup");
-                break; // 🔥 DO NOT CRASH
+                logger.LogError(ex, " Database failed after retries — continuing app startup");
+                break; // DO NOT CRASH
             }
 
             await Task.Delay(delay);
@@ -143,7 +164,7 @@ app.MapGet("/", () => Results.Redirect("/swagger"));
 
 app.UseGlobalExceptionMiddleware();
 
-// ⚠️ Disable HTTPS in Docker (important)
+// Disable HTTPS in Docker (important)
  // app.UseHttpsRedirection();
 
 app.UseAuthentication();
