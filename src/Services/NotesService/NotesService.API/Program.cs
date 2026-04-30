@@ -1,4 +1,5 @@
 using System.Text;
+using Dapr.Client;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Data.SqlClient;
 using Microsoft.IdentityModel.Tokens;
@@ -14,7 +15,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // CONFIG
 
-var redisConnection = builder.Configuration["RedisSettings:ConnectionString"];
+var daprHttpEndpoint = builder.Configuration["Dapr:HttpEndpoint"];
+var daprStateStoreName = builder.Configuration["Dapr:StateStoreName"];
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new InvalidOperationException("ConnectionStrings:DefaultConnection is required.");
@@ -92,6 +94,17 @@ builder.Services.AddAuthorization();
 // CACHE
 builder.Services.AddMemoryCache();
 builder.Services.AddLogging();
+builder.Services.AddSingleton(_ =>
+{
+    var clientBuilder = new DaprClientBuilder();
+
+    if (!string.IsNullOrWhiteSpace(daprHttpEndpoint))
+    {
+        clientBuilder.UseHttpEndpoint(daprHttpEndpoint);
+    }
+
+    return clientBuilder.Build();
+});
 
 // DATABASE
 builder.Services.AddSingleton(new NotesDbContext(connectionString));
@@ -102,16 +115,18 @@ builder.Services.AddSingleton<ICacheService>(serviceProvider =>
 {
     var logger = serviceProvider.GetRequiredService<ILoggerFactory>().CreateLogger("Cache");
 
-    if (!string.IsNullOrWhiteSpace(redisConnection))
+    if (!string.IsNullOrWhiteSpace(daprHttpEndpoint) && !string.IsNullOrWhiteSpace(daprStateStoreName))
     {
         try
         {
-            logger.LogInformation("Using Redis cache for NotesService.");
-            return new RedisCacheService(redisConnection);
+            logger.LogInformation("Using Dapr state store cache for NotesService.");
+            return new DaprStateCacheService(
+                serviceProvider.GetRequiredService<DaprClient>(),
+                daprStateStoreName);
         }
         catch (Exception ex)
         {
-            logger.LogWarning(ex, "Redis failed, using memory cache.");
+            logger.LogWarning(ex, "Dapr state store is unavailable, using memory cache.");
         }
     }
 

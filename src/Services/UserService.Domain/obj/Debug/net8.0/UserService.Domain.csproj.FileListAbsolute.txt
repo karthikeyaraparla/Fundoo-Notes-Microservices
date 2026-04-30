@@ -10,3 +10,4 @@
 /Users/karthikeyaraparla/FundooNotes/src/Services/UserService.Domain/obj/Debug/net8.0/refint/UserService.Domain.dll
 /Users/karthikeyaraparla/FundooNotes/src/Services/UserService.Domain/obj/Debug/net8.0/UserService.Domain.pdb
 /Users/karthikeyaraparla/FundooNotes/src/Services/UserService.Domain/obj/Debug/net8.0/ref/UserService.Domain.dll
+/Users/karthikeyaraparla/FundooNotes/src/Services/UserService.Domain/obj/Debug/net8.0/UserService.Domain.sourcelink.json

@@ -10,3 +10,4 @@
 /Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Domain/obj/Debug/net8.0/refint/NotesService.Domain.dll
 /Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Domain/obj/Debug/net8.0/NotesService.Domain.pdb
 /Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Domain/obj/Debug/net8.0/ref/NotesService.Domain.dll
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Domain/obj/Debug/net8.0/NotesService.Domain.sourcelink.json

@@ -23,7 +23,8 @@ Each service is independently deployable and communicates over HTTP.
 * Ocelot API Gateway
 * Docker & Docker Compose
 * SQL Server
-* Redis (for caching)
+* Redis (for Dapr state store backing Notes caching)
+* Dapr
 * MediatR (CQRS pattern)
 * Dapper (lightweight ORM)
 
@@ -76,12 +77,23 @@ SQL Server is used as the primary database. Each service ensures its own tables 
 
 ## Caching
 
-Redis is used in the Notes Service for caching frequently accessed data. If Redis is unavailable, the service falls back to in-memory caching.
+Notes Service uses Dapr state management for cached note lists. The configured state store is Redis via the `notes-statestore` Dapr component. If Dapr is unavailable, the service falls back to in-memory caching.
+
+## Dapr State Store
+
+The repository includes a Redis-backed Dapr component at `dapr/components/notes-statestore.yaml`.
+
+When running with Docker Compose:
+
+* Redis is exposed on `localhost:6379`
+* Notes Dapr sidecar is exposed on `localhost:3502`
+* Notes Service calls Dapr at `http://notes-dapr:3502`
+
+The current Dapr integration is for Notes caching/state access. RabbitMQ is not used for this path because Dapr state management requires a state-store component, while RabbitMQ is typically used as a pub/sub broker.
 
 ## Development Notes
 
 * Services use retry logic to handle delayed database startup in Docker environments
 * HTTPS redirection is disabled for container compatibility
 * Environment variables are used for database configuration inside Docker
-
 

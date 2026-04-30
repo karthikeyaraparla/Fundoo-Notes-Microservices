@@ -40,6 +40,21 @@ public class NoteRepository : INoteRepository
         return notes.ToList();
     }
 
+    public async Task<List<Note>> GetByIdsForUserAsync(int userId, IReadOnlyCollection<int> noteIds)
+    {
+        const string query = """
+            SELECT Id, UserId, Title, Description, Color, IsPinned, IsArchived, IsTrashed, CreatedAt, UpdatedAt
+            FROM Notes
+            WHERE UserId = @UserId
+              AND Id IN @NoteIds
+            ORDER BY CreatedAt DESC;
+            """;
+
+        using var connection = _dbContext.CreateConnection();
+        var notes = await connection.QueryAsync<Note>(query, new { UserId = userId, NoteIds = noteIds.ToArray() });
+        return notes.ToList();
+    }
+
     public async Task<Note?> GetByIdAsync(int id)
     {
         const string query = """

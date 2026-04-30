@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.Extensions.Logging;
 using NotesService.Application.Interfaces;
 using NotesService.Domain.Entities;
 using SharedLibrary.CustomExceptions;
@@ -9,11 +10,13 @@ public class CreateNoteHandler : IRequestHandler<CreateNoteCommand, int>
 {
     private readonly INoteRepository _repo;
     private readonly ICacheService _cache;
+    private readonly ILogger<CreateNoteHandler> _logger;
 
-    public CreateNoteHandler(INoteRepository repo, ICacheService cache)
+    public CreateNoteHandler(INoteRepository repo, ICacheService cache, ILogger<CreateNoteHandler> logger)
     {
         _repo = repo;
         _cache = cache;
+        _logger = logger;
     }
 
     public async Task<int> Handle(CreateNoteCommand request, CancellationToken cancellationToken)
@@ -47,10 +50,16 @@ public class CreateNoteHandler : IRequestHandler<CreateNoteCommand, int>
         try
         {
             await _cache.RemoveAsync(CacheKeys.NotesByUser(request.UserId));
+            _logger.LogInformation(
+                "Notes cache invalidated for user {UserId} after note creation",
+                request.UserId);
         }
-        catch
+        catch (Exception ex)
         {
-            // Don't break main flow if cache fails
+            _logger.LogWarning(
+                ex,
+                "Notes cache invalidation failed for user {UserId} after note creation",
+                request.UserId);
         }
 
         return id;

@@ -1,7 +1,4 @@
 <Solution>
-  <Folder Name="/Solution Items/">
-    <File Path="docker-compose.yml" />
-  </Folder>
   <Folder Name="/src/">
     <Project Path="src/Services/SharedLibrary/SharedLibrary.csproj" />
     <Project Path="src/Testing/Testing.csproj" />
@@ -13,6 +10,9 @@
     <Project Path="src/Services/CollaboratorService.Domain/CollaboratorService.Domain.csproj" />
     <Project Path="src/Services/CollaboratorService.Infrastructure/CollaboratorService.Infrastructure.csproj" />
     <Project Path="src\Services\CollaboratorService.API\CollaboratorService.API.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/EmailService/">
+    <Project Path="src/Services/EmailService.API/EmailService.API.csproj" />
   </Folder>
   <Folder Name="/src/Services/LabelsService/">
     <Project Path="src/Services/LabelsService.Application/LabelsService.Application.csproj" />

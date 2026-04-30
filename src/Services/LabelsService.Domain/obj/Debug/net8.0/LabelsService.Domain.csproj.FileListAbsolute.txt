@@ -9,3 +9,5 @@
 /Users/karthikeyaraparla/FundooNotes/src/Services/LabelsService.Domain/obj/Debug/net8.0/refint/LabelsService.Domain.dll
 /Users/karthikeyaraparla/FundooNotes/src/Services/LabelsService.Domain/obj/Debug/net8.0/LabelsService.Domain.pdb
 /Users/karthikeyaraparla/FundooNotes/src/Services/LabelsService.Domain/obj/Debug/net8.0/ref/LabelsService.Domain.dll
+/Users/karthikeyaraparla/FundooNotes/src/Services/LabelsService.Domain/obj/Debug/net8.0/LabelsService.Domain.sourcelink.json
+/Users/karthikeyaraparla/FundooNotes/src/Services/LabelsService.Domain/obj/Debug/net8.0/LabelsService.Domain.csproj.AssemblyReference.cache

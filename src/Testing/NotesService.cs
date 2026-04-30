@@ -4,6 +4,7 @@ using NotesService.Application.Features.Notes.Commands.CreateNote;
 using NotesService.Application.Interfaces;
 using NotesService.Application.DTOs;
 using NotesService.Domain.Entities;
+using Microsoft.Extensions.Logging.Abstractions;
 
 [TestClass]
 public class NotesServiceTests
@@ -20,7 +21,10 @@ public class NotesServiceTests
         mockCache.Setup(c => c.RemoveAsync(It.IsAny<string>()))
             .Returns(Task.CompletedTask);
 
-        var handler = new CreateNoteHandler(mockRepo.Object, mockCache.Object);
+        var handler = new CreateNoteHandler(
+            mockRepo.Object,
+            mockCache.Object,
+            NullLogger<CreateNoteHandler>.Instance);
 
         var command = new CreateNoteCommand(
             1,

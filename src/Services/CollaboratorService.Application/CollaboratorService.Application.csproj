@@ -12,7 +12,9 @@
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="Dapr.Client" Version="1.17.9" />
       <PackageReference Include="MediatR" Version="14.1.0" />
+      <PackageReference Include="RabbitMQ.Client" Version="6.5.0" />
     </ItemGroup>
 
 </Project>

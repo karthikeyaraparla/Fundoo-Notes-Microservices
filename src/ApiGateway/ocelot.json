@@ -1,12 +1,12 @@
 {
   "Routes": [
     {
-      "DownstreamPathTemplate": "/api/user/{everything}",
+      "DownstreamPathTemplate": "/api/Auth/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         { "Host": "user-service", "Port": 8080 }
       ],
-      "UpstreamPathTemplate": "/users/{everything}",
+      "UpstreamPathTemplate": "/users/api/Auth/{everything}",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
     },
     {
@@ -34,7 +34,11 @@
         { "Host": "collaborator-service", "Port": 8080 }
       ],
       "UpstreamPathTemplate": "/collaborators/{everything}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKeys": [ "Bearer" ],
+        "AllowedScopes": []
+      }
     }
   ],
   "GlobalConfiguration": {

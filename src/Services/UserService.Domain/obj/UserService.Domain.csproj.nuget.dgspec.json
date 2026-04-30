@@ -48,9 +48,17 @@
               "target": "Package",
               "version": "[2.1.72, )"
             },
+            "Dapr.AspNetCore": {
+              "target": "Package",
+              "version": "[1.17.9, )"
+            },
             "Microsoft.Data.SqlClient": {
               "target": "Package",
               "version": "[7.0.0, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.5.0, )"
             }
           },
           "imports": [

@@ -51,6 +51,10 @@
             "Microsoft.Data.SqlClient": {
               "target": "Package",
               "version": "[7.0.0, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.5.0, )"
             }
           },
           "imports": [

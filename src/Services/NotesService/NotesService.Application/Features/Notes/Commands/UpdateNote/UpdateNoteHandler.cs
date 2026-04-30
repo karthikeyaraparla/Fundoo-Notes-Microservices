@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.Extensions.Logging;
 using NotesService.Application.Interfaces;
 using SharedLibrary.CustomExceptions;
 
@@ -8,11 +9,13 @@ public class UpdateNoteHandler : IRequestHandler<UpdateNoteCommand, bool>
 {
     private readonly INoteRepository _repo;
     private readonly ICacheService _cache;
+    private readonly ILogger<UpdateNoteHandler> _logger;
 
-    public UpdateNoteHandler(INoteRepository repo, ICacheService cache)
+    public UpdateNoteHandler(INoteRepository repo, ICacheService cache, ILogger<UpdateNoteHandler> logger)
     {
         _repo = repo;
         _cache = cache;
+        _logger = logger;
     }
 
     public async Task<bool> Handle(UpdateNoteCommand request, CancellationToken cancellationToken)
@@ -46,10 +49,16 @@ public class UpdateNoteHandler : IRequestHandler<UpdateNoteCommand, bool>
         try
         {
             await _cache.RemoveAsync(CacheKeys.NotesByUser(note.UserId));
+            _logger.LogInformation(
+                "Notes cache invalidated for user {UserId} after note update",
+                note.UserId);
         }
-        catch
+        catch (Exception ex)
         {
-            // Ignore cache failure
+            _logger.LogWarning(
+                ex,
+                "Notes cache invalidation failed for user {UserId} after note update",
+                note.UserId);
         }
 
         return true;

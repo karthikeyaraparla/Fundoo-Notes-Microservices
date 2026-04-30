@@ -39,6 +39,15 @@ public class DbConnectionFactory
                     UserId INT NOT NULL
                 );
             END;
+
+            IF OBJECT_ID('dbo.NoteLabels', 'U') IS NULL
+            BEGIN
+                CREATE TABLE dbo.NoteLabels (
+                    Id INT IDENTITY(1,1) PRIMARY KEY,
+                    NoteId INT NOT NULL,
+                    LabelId INT NOT NULL
+                );
+            END;
         ";
 
         await connection.ExecuteAsync(query);

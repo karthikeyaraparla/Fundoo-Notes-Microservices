@@ -15,3 +15,4 @@
 /Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Application/obj/Debug/net8.0/ref/NotesService.Application.dll
 /Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Application/bin/Debug/net8.0/SharedLibrary.dll
 /Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Application/bin/Debug/net8.0/SharedLibrary.pdb
+/Users/karthikeyaraparla/FundooNotes/src/Services/NotesService/NotesService.Application/obj/Debug/net8.0/NotesService.Application.sourcelink.json

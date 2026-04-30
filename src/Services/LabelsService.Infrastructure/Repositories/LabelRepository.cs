@@ -1,8 +1,6 @@
 using Dapper;
-using LabelsService.Domain.Entities;
 using LabelsService.Application.Interfaces;
 using LabelsService.Infrastructure.Persistence;
-using Microsoft.Data.SqlClient.DataClassification;
 using LabelsService.Domain.Entities;
 using Label = LabelsService.Domain.Entities.Label;
 
@@ -37,7 +35,7 @@ public class LabelRepository : ILabelRepository
         return await conn.ExecuteAsync(query, new { labelId, userId }) > 0;
     }
 
-    public async Task<bool> AssignLabelToNote(string noteId, int labelId)
+    public async Task<bool> AssignLabelToNote(int noteId, int labelId)
     {
         using var conn = _factory.CreateConnection();
 
@@ -46,7 +44,7 @@ public class LabelRepository : ILabelRepository
         return await conn.ExecuteAsync(query, new { noteId, labelId }) > 0;
     }
 
-    public async Task<bool> RemoveLabelFromNote(string noteId, int labelId)
+    public async Task<bool> RemoveLabelFromNote(int noteId, int labelId)
     {
         using var conn = _factory.CreateConnection();
 
@@ -62,5 +60,27 @@ public class LabelRepository : ILabelRepository
         string query = "SELECT * FROM Labels WHERE UserId=@userId";
 
         return await conn.QueryAsync<Label>(query, new { userId });
+    }
+
+    public async Task<IReadOnlyList<int>> GetNoteIdsByLabelName(int userId, string labelName)
+    {
+        using var conn = _factory.CreateConnection();
+
+        const string query = """
+            SELECT DISTINCT nl.NoteId
+            FROM NoteLabels nl
+            INNER JOIN Labels l ON l.Id = nl.LabelId
+            WHERE l.UserId = @userId
+              AND l.Name LIKE @labelName
+            ORDER BY nl.NoteId DESC;
+            """;
+
+        var noteIds = await conn.QueryAsync<int>(query, new
+        {
+            userId,
+            labelName = $"%{labelName}%"
+        });
+
+        return noteIds.ToList();
     }
 }

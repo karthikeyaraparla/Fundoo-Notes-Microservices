@@ -3,7 +3,7 @@ using MediatR;
 
 namespace LabelsService.Application.Features.Labels.Commands.AssignLabel;
 
-public record AssignLabelCommand(string NoteId, int LabelId) : IRequest<bool>;
+public record AssignLabelCommand(int NoteId, int LabelId) : IRequest<bool>;
 
 public class AssignLabelHandler : IRequestHandler<AssignLabelCommand, bool>
 {

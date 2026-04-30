@@ -4,7 +4,7 @@ public class NoteLabel
 {
     public int Id { get; set; }
 
-    public string NoteId { get; set; } = string.Empty;
+    public int NoteId { get; set; }
 
     public int LabelId { get; set; }
 }

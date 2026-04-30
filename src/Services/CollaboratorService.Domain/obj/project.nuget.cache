@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "+PzT0nHWriE=",
+  "dgSpecHash": "9H2L8yGzz9M=",
   "success": true,
   "projectFilePath": "/Users/karthikeyaraparla/FundooNotes/src/Services/CollaboratorService.Domain/CollaboratorService.Domain.csproj",
   "expectedPackageFiles": [
+    "/Users/karthikeyaraparla/.nuget/packages/rabbitmq.client/6.5.0/rabbitmq.client.6.5.0.nupkg.sha512",
+    "/Users/karthikeyaraparla/.nuget/packages/system.memory/4.5.5/system.memory.4.5.5.nupkg.sha512",
+    "/Users/karthikeyaraparla/.nuget/packages/system.threading.channels/7.0.0/system.threading.channels.7.0.0.nupkg.sha512",
     "/Users/karthikeyaraparla/.nuget/packages/microsoft.netcore.app.ref/8.0.23/microsoft.netcore.app.ref.8.0.23.nupkg.sha512",
     "/Users/karthikeyaraparla/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.23/microsoft.aspnetcore.app.ref.8.0.23.nupkg.sha512"
   ],

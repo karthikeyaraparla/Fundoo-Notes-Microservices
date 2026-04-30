@@ -9,3 +9,5 @@
 /Users/karthikeyaraparla/FundooNotes/src/Services/CollaboratorService.Domain/obj/Debug/net8.0/refint/CollaboratorService.Domain.dll
 /Users/karthikeyaraparla/FundooNotes/src/Services/CollaboratorService.Domain/obj/Debug/net8.0/CollaboratorService.Domain.pdb
 /Users/karthikeyaraparla/FundooNotes/src/Services/CollaboratorService.Domain/obj/Debug/net8.0/ref/CollaboratorService.Domain.dll
+/Users/karthikeyaraparla/FundooNotes/src/Services/CollaboratorService.Domain/obj/Debug/net8.0/CollaboratorService.Domain.sourcelink.json
+/Users/karthikeyaraparla/FundooNotes/src/Services/CollaboratorService.Domain/obj/Debug/net8.0/CollaboratorService.Domain.csproj.AssemblyReference.cache

@@ -3,7 +3,7 @@ using MediatR;
 
 namespace LabelsService.Application.Features.Labels.Commands.RemoveLabel;
 
-public record RemoveLabelCommand(string NoteId, int LabelId) : IRequest<bool>;
+public record RemoveLabelCommand(int NoteId, int LabelId) : IRequest<bool>;
 
 public class RemoveLabelHandler : IRequestHandler<RemoveLabelCommand, bool>
 {

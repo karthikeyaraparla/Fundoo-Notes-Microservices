@@ -21,3 +21,4 @@
 /Users/karthikeyaraparla/FundooNotes/src/Services/LabelsService.Infrastructure/obj/Debug/net8.0/ref/LabelsService.Infrastructure.dll
 /Users/karthikeyaraparla/FundooNotes/src/Services/LabelsService.Infrastructure/bin/Debug/net8.0/SharedLibrary.dll
 /Users/karthikeyaraparla/FundooNotes/src/Services/LabelsService.Infrastructure/bin/Debug/net8.0/SharedLibrary.pdb
+/Users/karthikeyaraparla/FundooNotes/src/Services/LabelsService.Infrastructure/obj/Debug/net8.0/LabelsService.Infrastructure.sourcelink.json

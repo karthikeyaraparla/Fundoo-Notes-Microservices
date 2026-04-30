@@ -54,6 +54,18 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Dapr.AspNetCore": {
+              "target": "Package",
+              "version": "[1.17.9, )"
+            },
+            "Dapr.Client": {
+              "target": "Package",
+              "version": "[1.17.9, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[14.1.0, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[8.0.14, )"
@@ -65,6 +77,10 @@
             "Microsoft.Data.SqlClient": {
               "target": "Package",
               "version": "[7.0.0, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.5.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -155,9 +171,17 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Dapr.Client": {
+              "target": "Package",
+              "version": "[1.17.9, )"
+            },
             "MediatR": {
               "target": "Package",
               "version": "[14.1.0, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.5.0, )"
             }
           },
           "imports": [
@@ -229,6 +253,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -313,6 +343,10 @@
             "Microsoft.Data.SqlClient": {
               "target": "Package",
               "version": "[7.0.0, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.5.0, )"
             }
           },
           "imports": [
@@ -385,9 +419,17 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Dapr.AspNetCore": {
+              "target": "Package",
+              "version": "[1.17.9, )"
+            },
             "Microsoft.AspNetCore.Http.Abstractions": {
               "target": "Package",
               "version": "[2.3.9, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.5.0, )"
             }
           },
           "imports": [

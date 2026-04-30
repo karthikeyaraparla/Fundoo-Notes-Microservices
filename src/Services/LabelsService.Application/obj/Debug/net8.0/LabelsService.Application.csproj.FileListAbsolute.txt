@@ -15,3 +15,4 @@
 /Users/karthikeyaraparla/FundooNotes/src/Services/LabelsService.Application/obj/Debug/net8.0/ref/LabelsService.Application.dll
 /Users/karthikeyaraparla/FundooNotes/src/Services/LabelsService.Application/bin/Debug/net8.0/SharedLibrary.dll
 /Users/karthikeyaraparla/FundooNotes/src/Services/LabelsService.Application/bin/Debug/net8.0/SharedLibrary.pdb
+/Users/karthikeyaraparla/FundooNotes/src/Services/LabelsService.Application/obj/Debug/net8.0/LabelsService.Application.sourcelink.json

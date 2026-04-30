@@ -1,9 +1,10 @@
 using System.Text;
 using CollaboratorService.Application.Features.Collaborators.Commands.AddCollaborator;
 using CollaboratorService.Application.Interfaces;
-using CollaboratorService.Infrastructure.Email;
+using CollaboratorService.Application.Options;
 using CollaboratorService.Infrastructure.Persistence;
 using CollaboratorService.Infrastructure.Repositories;
+using Dapr.Client;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Data.SqlClient;
 using Microsoft.IdentityModel.Tokens;
@@ -12,10 +13,13 @@ using SharedLibrary.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// CONFIG
+#region CONFIG
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new InvalidOperationException("ConnectionStrings:DefaultConnection is required.");
+
+var pubSubName = builder.Configuration["Dapr:PubSubName"] ?? "rabbitmq-pubsub";
+var topicName = builder.Configuration["Dapr:CollaboratorInvitationTopic"] ?? "collaborator-invitations";
 
 var jwtSecret = builder.Configuration["JwtSettings:Secret"]
     ?? throw new InvalidOperationException("JwtSettings:Secret is required.");
@@ -28,9 +32,11 @@ var jwtAudience = builder.Configuration["JwtSettings:Audience"]
 
 var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSecret));
 
-// SERVICES
+#endregion
 
-builder.Services.AddControllers();
+#region SERVICES
+
+builder.Services.AddControllers().AddDapr();
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(options =>
@@ -40,34 +46,13 @@ builder.Services.AddSwaggerGen(options =>
         Title = "Collaborator Service API",
         Version = "v1"
     });
-
-    var jwtSecurityScheme = new OpenApiSecurityScheme
-    {
-        BearerFormat = "JWT",
-        Name = "Authorization",
-        In = ParameterLocation.Header,
-        Type = SecuritySchemeType.Http,
-        Scheme = JwtBearerDefaults.AuthenticationScheme,
-        Description = "Enter 'Bearer {token}'",
-        Reference = new OpenApiReference
-        {
-            Id = JwtBearerDefaults.AuthenticationScheme,
-            Type = ReferenceType.SecurityScheme
-        }
-    };
-
-    options.AddSecurityDefinition(jwtSecurityScheme.Reference.Id, jwtSecurityScheme);
-
-    options.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
-        [jwtSecurityScheme] = Array.Empty<string>()
-    });
 });
 
 // MediatR
 builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssembly(typeof(AddCollaboratorHandler).Assembly));
 
+// JWT
 builder.Services
     .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -86,77 +71,61 @@ builder.Services
 
 builder.Services.AddAuthorization();
 
-
-// DATABASE
-
-builder.Services.AddSingleton<DbConnectionFactory>(sp =>
+// PubSub Options
+builder.Services.Configure<CollaboratorInvitationPubSubOptions>(options =>
 {
-    var config = sp.GetRequiredService<IConfiguration>();
-    return new DbConnectionFactory(config.GetConnectionString("DefaultConnection")!);
+    options.PubSubName = pubSubName;
+    options.TopicName = topicName;
 });
 
-builder.Services.AddSingleton(sp =>
-{
-    var config = sp.GetRequiredService<IConfiguration>();
-    var smtpUsername = config["SmtpSettings:Username"]
-        ?? config["SmtpSettings:UserName"]
-        ?? string.Empty;
+// Dapr Client
+builder.Services.AddDaprClient();
 
-    return new SmtpSettings
-    {
-        Host = config["SmtpSettings:Host"] ?? string.Empty,
-        Port = int.TryParse(config["SmtpSettings:Port"], out var port) ? port : 0,
-        Username = smtpUsername,
-        Password = config["SmtpSettings:Password"] ?? string.Empty,
-        FromEmail = config["SmtpSettings:FromEmail"] ?? smtpUsername,
-        FromName = config["SmtpSettings:FromName"] ?? "Fundoo Notes",
-        EnableSsl = bool.TryParse(config["SmtpSettings:EnableSsl"], out var enableSsl) && enableSsl
-    };
+// Database (FIXED)
+builder.Services.AddSingleton<DbConnectionFactory>(sp =>
+{
+    return new DbConnectionFactory(connectionString);
 });
 
 builder.Services.AddScoped<ICollaboratorRepository, CollaboratorRepository>();
-builder.Services.AddScoped<ICollaboratorInvitationEmailService, SmtpCollaboratorInvitationEmailService>();
 
-// APP
+#endregion
 
 var app = builder.Build();
 
-
-//  FIXED RETRY LOGIC (IMPORTANT)
+#region DB INIT
 
 using (var scope = app.Services.CreateScope())
 {
     var dbFactory = scope.ServiceProvider.GetRequiredService<DbConnectionFactory>();
     var logger = scope.ServiceProvider.GetRequiredService<ILoggerFactory>().CreateLogger("Startup");
 
-    int maxRetries = 20; // increased retries
-    int delay = 5000;    // 5 seconds
+    int maxRetries = 20;
+    int delay = 5000;
 
     for (int i = 1; i <= maxRetries; i++)
     {
         try
         {
             await dbFactory.EnsureDatabaseObjectsAsync();
-            logger.LogInformation(" Database initialized successfully");
+            logger.LogInformation("Database initialized successfully");
             break;
         }
-        catch (SqlException ex)
+        catch (SqlException)
         {
-            logger.LogWarning($" Attempt {i}/{maxRetries} - SQL not ready... retrying in 5 seconds");
-
-            if (i == maxRetries)
-            {
-                logger.LogError(ex, " Database failed after retries — continuing app startup");
-                break; // DO NOT CRASH
-            }
-
+            logger.LogWarning("SQL not ready... retrying");
             await Task.Delay(delay);
         }
     }
 }
 
+#endregion
 
-// MIDDLEWARE
+#region MIDDLEWARE
+
+app.UseRouting();
+
+app.UseCloudEvents();
 
 app.UseSwagger();
 app.UseSwaggerUI();
@@ -164,12 +133,13 @@ app.MapGet("/", () => Results.Redirect("/swagger"));
 
 app.UseGlobalExceptionMiddleware();
 
-// Disable HTTPS in Docker (important)
- // app.UseHttpsRedirection();
-
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.MapSubscribeHandler();
+
 app.MapControllers();
+
+#endregion
 
 app.Run();

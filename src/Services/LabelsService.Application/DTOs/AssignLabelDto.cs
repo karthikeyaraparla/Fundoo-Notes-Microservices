@@ -1,3 +1,3 @@
 namespace LabelsService.Application.DTOs;
 
-public record AssignLabelDto(string NoteId, int LabelId);
+public record AssignLabelDto(int NoteId, int LabelId);

@@ -17,3 +17,4 @@
 /Users/karthikeyaraparla/FundooNotes/src/Services/UserService.Infrastructure/obj/Debug/net8.0/ref/UserService.Infrastructure.dll
 /Users/karthikeyaraparla/FundooNotes/src/Services/UserService.Infrastructure/bin/Debug/net8.0/SharedLibrary.dll
 /Users/karthikeyaraparla/FundooNotes/src/Services/UserService.Infrastructure/bin/Debug/net8.0/SharedLibrary.pdb
+/Users/karthikeyaraparla/FundooNotes/src/Services/UserService.Infrastructure/obj/Debug/net8.0/UserService.Infrastructure.sourcelink.json

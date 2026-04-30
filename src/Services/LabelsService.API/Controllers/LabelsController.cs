@@ -1,14 +1,17 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using LabelsService.Application.DTOs;
 using LabelsService.Application.Features.Labels.Commands.AssignLabel;
 using LabelsService.Application.Features.Labels.Commands.DeleteLabel;
 using LabelsService.Application.Features.Labels.Commands.RemoveLabel;
+using LabelsService.Application.Features.Labels.Queries.GetNotesByLabelName;
 
 namespace LabelsService.API.Controllers;
 
 [ApiController]
+[Authorize]
 [Route("api/[controller]")]
 public class LabelController : ControllerBase
 {
@@ -19,28 +22,27 @@ public class LabelController : ControllerBase
         _mediator = mediator;
     }
 
-    // Helper to get UserId from JWT
+    // 🔑 Extract userId safely
     private int GetUserId()
     {
-        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var userId = User.FindFirstValue("userId")
+            ?? User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-        if (string.IsNullOrEmpty(userId))
-            throw new UnauthorizedAccessException("Invalid token");
+        if (string.IsNullOrWhiteSpace(userId) || !int.TryParse(userId, out var parsedId))
+            throw new UnauthorizedAccessException("Invalid or missing userId in token");
 
-        return int.Parse(userId);
+        return parsedId;
     }
 
-    // CREATE LABEL
+    // ✅ CREATE LABEL
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] CreateLabelDto dto)
     {
-        var labelId = await _mediator.Send(
-            new CreateLabelCommand
-            {
-                Dto = dto,
-                UserId = GetUserId()
-            }
-        );
+        var labelId = await _mediator.Send(new CreateLabelCommand
+        {
+            Dto = dto,
+            UserId = GetUserId()
+        });
 
         return Ok(new
         {
@@ -49,7 +51,7 @@ public class LabelController : ControllerBase
         });
     }
 
-    //  DELETE LABEL
+    // 🗑 DELETE LABEL
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
@@ -63,7 +65,7 @@ public class LabelController : ControllerBase
         });
     }
 
-    //  ASSIGN LABEL TO NOTE
+    // 🔗 ASSIGN LABEL
     [HttpPost("assign")]
     public async Task<IActionResult> Assign([FromBody] AssignLabelDto dto)
     {
@@ -77,7 +79,7 @@ public class LabelController : ControllerBase
         });
     }
 
-    //  REMOVE LABEL FROM NOTE
+    // ❌ REMOVE LABEL
     [HttpPost("remove")]
     public async Task<IActionResult> Remove([FromBody] AssignLabelDto dto)
     {
@@ -91,5 +93,23 @@ public class LabelController : ControllerBase
         });
     }
 
-   
+    // 🔥 MAIN FEATURE (SERVICE INVOCATION + CACHE)
+    [HttpGet("{labelName}/notes")]
+    public async Task<IActionResult> GetNotesByLabelName(string labelName)
+    {
+        var userId = GetUserId();
+
+        // Optional: pass auth header if needed downstream
+        var authHeader = Request.Headers.Authorization.ToString();
+
+        var notes = await _mediator.Send(
+            new GetNotesByLabelNameQuery(
+                userId,
+                labelName,
+                authHeader
+            )
+        );
+
+        return Ok(notes);
+    }
 }

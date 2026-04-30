@@ -22,13 +22,13 @@ public class LoginHandler : IRequestHandler<LoginCommand, AuthResponseDto>
 
     public async Task<AuthResponseDto> Handle(LoginCommand request, CancellationToken cancellationToken)
     {
-        // 🔍 Find user
+        //  Find user
         var user = await _repo.GetByEmailAsync(request.Dto.Email);
 
         if (user == null)
             throw new UnauthorizedException("Invalid email or password");
 
-        // 🔐 Verify password
+        //  Verify password
         bool isValid = BCrypt.Net.BCrypt.Verify(
             request.Dto.Password,
             user.PasswordHash
@@ -37,7 +37,7 @@ public class LoginHandler : IRequestHandler<LoginCommand, AuthResponseDto>
         if (!isValid)
             throw new UnauthorizedException("Invalid email or password");
 
-        // 🔐 JWT Generation
+        //  JWT Generation
         var tokenHandler = new JwtSecurityTokenHandler();
 
         var secret = _configuration["JwtSettings:Secret"]

@@ -15,3 +15,4 @@
 /Users/karthikeyaraparla/FundooNotes/src/Services/UserService.Application/obj/Debug/net8.0/ref/UserService.Application.dll
 /Users/karthikeyaraparla/FundooNotes/src/Services/UserService.Application/bin/Debug/net8.0/SharedLibrary.dll
 /Users/karthikeyaraparla/FundooNotes/src/Services/UserService.Application/bin/Debug/net8.0/SharedLibrary.pdb
+/Users/karthikeyaraparla/FundooNotes/src/Services/UserService.Application/obj/Debug/net8.0/UserService.Application.sourcelink.json
